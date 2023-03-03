@@ -1,0 +1,9 @@
+<mat-toolbar color="primary" class="mat-elevation-z4">
+    <a mat-button routerLinkActive="active"><mat-icon>account_circle</mat-icon>{{user.name}}</a>
+    <span class="toolbar-spacer"></span>
+    <div fxLayout="row" fxLayoutGap="25px">
+        <a mat-button routerLink="/find" routerLinkActive="active"><mat-icon>person_search</mat-icon>Find</a>
+        <a mat-button routerLink="/terms" routerLinkActive="active"><mat-icon>gavel</mat-icon>Our Terms</a>
+        <a mat-raised-button color="accent" (click)="logoutProcess()"><mat-icon>logout</mat-icon>Logout</a>
+    </div>
+</mat-toolbar>

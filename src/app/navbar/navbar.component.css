@@ -1,0 +1,11 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+a.active {
+    font-weight: bold;
+}
+
+mat-button ~ mat-button {
+    margin-right: 10px;
+}

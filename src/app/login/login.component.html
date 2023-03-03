@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <mat-card-content>
+            <mat-toolbar color="primary" [style.marginBottom.px]="12">MHC</mat-toolbar>
+            <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
+                <mat-form-field>
+                    <input matInput placeholder="Username" formControlName="username">
+                    <div *ngIf="formGroup.controls['username'].errors">
+                        Field is required.
+                    </div>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Password" formControlName="password">
+                    <div *ngIf="formGroup.controls['password'].errors">
+                        Field is required.
+                    </div>
+                </mat-form-field>
+                <button type="submit" mat-fab extended [disabled]="!formGroup.valid || resourcesLoaded">
+                    <mat-spinner *ngIf="resourcesLoaded" [diameter]="20"></mat-spinner>
+                    <span *ngIf="!resourcesLoaded">Login</span>
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
