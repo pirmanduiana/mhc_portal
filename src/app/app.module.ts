@@ -21,6 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FinderComponent } from './finder/finder.component';
 import { TermsComponent } from './terms/terms.component';
 import { ApicomInterceptor } from './apicom.interceptor';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderInterceptor } from './loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { ApicomInterceptor } from './apicom.interceptor';
     LoginComponent,
     NavbarComponent,
     FinderComponent,
-    TermsComponent
+    TermsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -48,11 +51,18 @@ import { ApicomInterceptor } from './apicom.interceptor';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ApicomInterceptor,
-    multi: true
-  }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApicomInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
