@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
 
-<div class="finder-form" fxLayout fxLayoutAlign="center center" fxFlexFill>
+<div class="finder-form" fxLayout [fxLayoutAlign]="fxLayoutAlign" fxFlexFill [style.margin-top]="'15px'">
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Find</mat-label>
       <input #txtVal matInput placeholder="Type here" (keydown.enter)="applySearch(txtVal.value)">
+      <button mat-button matSuffix (click)="applySearch(txtVal.value)"><mat-icon>search</mat-icon></button>
     </mat-form-field>
   </form>
 </div>

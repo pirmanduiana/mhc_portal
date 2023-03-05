@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
     formGroup: FormGroup;
     resourcesLoaded: boolean = false;
+    isLogedIn: boolean = false;
 
     constructor(
         private authService: AuthService,
@@ -22,10 +23,15 @@ export class LoginComponent implements OnInit {
             username: new FormControl('', [Validators.required]),
             password: new FormControl('', [Validators.required])
         });
+
+        this.isLogedIn = localStorage.getItem('login_data') != null;
+        if (this.isLogedIn) {
+            this.router.navigateByUrl('/find');
+        }
     };
     
     ngOnInit(): void {
-        // ...
+        
     }
 
     loginProcess(): void{
