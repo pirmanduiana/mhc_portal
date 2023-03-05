@@ -15,23 +15,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from "@angular/material/icon";
 import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NavbarComponent } from './navbar/navbar.component';
 import { FinderComponent } from './finder/finder.component';
 import { TermsComponent } from './terms/terms.component';
 import { ApicomInterceptor } from './apicom.interceptor';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderInterceptor } from './loader.interceptor';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent,
     FinderComponent,
     TermsComponent,
-    LoaderComponent
+    LoaderComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,12 @@ import { LoaderInterceptor } from './loader.interceptor';
     MatIconModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatSidenavModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LayoutModule,
+    MatListModule
   ],
   providers: [
     {

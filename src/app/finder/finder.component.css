@@ -1,15 +1,13 @@
 .finder-form {
-    min-height: unset !important;
-    height: 89% !important;
+    width: 100%;
+    margin-top: 15px;
 }
 
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
+table {
     width: 100%;
 }
   
-.example-full-width {
+.finder-full-width {
     width: 100%;
 }
 
