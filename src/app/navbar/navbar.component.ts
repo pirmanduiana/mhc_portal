@@ -25,7 +25,6 @@ export class NavbarComponent {
 
     logoutProcess(): void{
         this.authService.logout().subscribe(result => {
-            console.log(result);
             localStorage.clear();
             this.router.navigateByUrl('/');
         });

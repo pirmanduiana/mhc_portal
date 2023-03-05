@@ -23,6 +23,7 @@ export class FinderComponent {
   {
     this.authService.getPasien(val).subscribe(result => {
       this.fxLayoutAlign = "center";
+      console.log(result);
     });
   }
 }
