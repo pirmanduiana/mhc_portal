@@ -28,4 +28,8 @@ export class AuthService {
 	getPasien(q: string):Observable<any>{
 		return this.http.get(environment.apiUrl + "provider/get-pasien?q=" + q);
 	}
+
+	regPasien(type: string, id: number):Observable<any>{
+		return this.http.get(environment.apiUrl + "provider/reg-pasien?type=" + type + "&id=" + id);
+	}
 }

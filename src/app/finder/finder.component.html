@@ -7,28 +7,34 @@
     </mat-form-field>
   </form>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-    <ng-container matColumnDef="mhc_code">
-      <th mat-header-cell *matHeaderCellDef> Code </th>
-      <td mat-cell *matCellDef="let element"> {{element.mhc_code}} </td>
-    </ng-container>
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="type">
-      <th mat-header-cell *matHeaderCellDef> Type </th>
-      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-    </ng-container>
-    <ng-container matColumnDef="status_name">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
-      <td mat-cell *matCellDef="let element"> {{element.status_name}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <mat-card *ngIf="data_clients != null">
+    <mat-card-content class="overflow-x">
+      <div class="client-block" *ngFor="let data_patients of data_clients">
+        <h2>{{data_patients.client_name}} ({{data_patients.patients.length}} data(s))</h2>
+        <table>
+          <thead>
+            <tr>
+              <th width="5%">No.</th>
+              <th width="30%">Code</th>
+              <th width="40%">Name</th>
+              <th width="5%">Status</th>
+              <th width="20%">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let patient of data_patients.patients; let i=index">
+              <td>{{i+1}}</td>
+              <td>{{patient.mhc_code}} ({{patient.type}})</td>
+              <td>{{patient.name}}</td>
+              <td>{{patient.status_name}}</td>
+              <td>
+                <a mat-icon-button href="" color="accent"><mat-icon>preview</mat-icon></a>
+                <a *ngIf="patient.status_name=='Active' && patient.reg_status==0" mat-icon-button (click)="regPasien(patient.type, patient.id)" color="accent"><mat-icon>app_registration</mat-icon></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </app-main-nav>

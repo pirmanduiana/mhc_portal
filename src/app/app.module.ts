@@ -17,6 +17,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FinderComponent } from './finder/finder.component';
@@ -53,6 +54,7 @@ import { MatListModule } from '@angular/material/list';
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatDialogModule,
+    MatSnackBarModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
