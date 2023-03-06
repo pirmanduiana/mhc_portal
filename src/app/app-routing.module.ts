@@ -15,6 +15,10 @@ const routes: Routes = [
         component: FinderComponent
     },
     {
+        path: 'registered',
+        component: FinderComponent
+    },
+    {
         path: 'terms',
         component: TermsComponent
     }
