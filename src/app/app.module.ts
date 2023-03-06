@@ -28,6 +28,7 @@ import { LoaderInterceptor } from './loader.interceptor';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
+import { PxdetailComponent } from './pxdetail/pxdetail.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MatListModule } from '@angular/material/list';
     FinderComponent,
     TermsComponent,
     LoaderComponent,
-    MainNavComponent
+    MainNavComponent,
+    PxdetailComponent
   ],
   imports: [
     BrowserModule,

@@ -2,12 +2,12 @@
   <form class="finder-form">
     <mat-form-field class="finder-full-width">
       <mat-label>Find</mat-label>
-      <input #txtVal matInput placeholder="Type here" (keydown.enter)="applySearch(txtVal.value)">
+      <input #txtVal matInput placeholder="Type here" (keydown.enter)="applySearch(txtVal.value)" [value]="search_value">
       <button mat-button matSuffix (click)="applySearch(txtVal.value)"><mat-icon>search</mat-icon></button>
     </mat-form-field>
   </form>
 
-  <mat-card *ngIf="data_clients != null">
+  <mat-card *ngIf="(data_clients | json) != '{}'">
     <mat-card-content class="overflow-x">
       <div class="client-block" *ngFor="let data_patients of data_clients">
         <h2>{{data_patients.client_name}} ({{data_patients.patients.length}} data(s))</h2>
@@ -28,7 +28,7 @@
               <td>{{patient.name}}</td>
               <td>{{patient.status_name}}</td>
               <td>
-                <a mat-icon-button href="" color="accent"><mat-icon>preview</mat-icon></a>
+                <a mat-icon-button (click)="viewDetail(patient.id)" color="accent"><mat-icon>preview</mat-icon></a>
                 <a *ngIf="patient.status_name=='Active' && patient.reg_status==0" mat-icon-button (click)="regPasien(patient.type, patient.id)" color="accent"><mat-icon>app_registration</mat-icon></a>
               </td>
             </tr>

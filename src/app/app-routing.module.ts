@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { FinderComponent } from './finder/finder.component';
 import { TermsComponent } from './terms/terms.component';
+import { PxdetailComponent } from './pxdetail/pxdetail.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,10 @@ const routes: Routes = [
     {
         path: 'find',
         component: FinderComponent
+    },
+    {
+        path: 'find/:id',
+        component: PxdetailComponent
     },
     {
         path: 'registered',

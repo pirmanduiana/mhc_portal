@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
         }
     };
     
-    ngOnInit(): void {
-        
-    }
+    ngOnInit(): void {}
 
     loginProcess(): void{
         if (this.formGroup.valid) {
