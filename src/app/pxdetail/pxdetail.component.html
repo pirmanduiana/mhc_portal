@@ -70,7 +70,7 @@
                 class="example-margin"
                 color="primary"
                 [checked]="is_reg"
-                [disabled]="is_reg">
+                [disabled]="is_reg || px.status_id==2">
                 {{px_reg_status}}
             </mat-slide-toggle>
         </mat-card-actions>
