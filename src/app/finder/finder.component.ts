@@ -52,9 +52,9 @@ export class FinderComponent {
     });
   }
 
-  viewDetail(id: number): void
+  viewDetail(id: number, type: string): void
   {
-    this.router.navigate(['/find', id]);
+    this.router.navigate(['/find', id, type]);
   }
 
   regPasien(type: string, id: number): void

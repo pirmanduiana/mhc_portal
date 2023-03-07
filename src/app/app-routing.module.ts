@@ -16,7 +16,7 @@ const routes: Routes = [
         component: FinderComponent
     },
     {
-        path: 'find/:id',
+        path: 'find/:id/:type',
         component: PxdetailComponent
     },
     {

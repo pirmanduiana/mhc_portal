@@ -28,7 +28,7 @@
               <td>{{patient.name}}</td>
               <td>{{patient.status_name}}</td>
               <td>
-                <a mat-icon-button (click)="viewDetail(patient.id)" color="accent"><mat-icon>preview</mat-icon></a>
+                <a mat-icon-button (click)="viewDetail(patient.id, patient.type)" color="accent"><mat-icon>preview</mat-icon></a>
                 <a *ngIf="patient.status_name=='Active' && patient.reg_status==0" mat-icon-button (click)="regPasien(patient.type, patient.id)" color="accent"><mat-icon>app_registration</mat-icon></a>
               </td>
             </tr>

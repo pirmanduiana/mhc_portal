@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PxdetailComponent {
   
   id: number = 0;
+  type: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -19,6 +20,7 @@ export class PxdetailComponent {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.type = params['type'];
     });
   }
 
