@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -60,6 +61,8 @@ import { PxdetailComponent } from './pxdetail/pxdetail.component';
     MatDialogModule,
     MatSnackBarModule,
     MatTabsModule,
+    MatSlideToggleModule,
+
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
