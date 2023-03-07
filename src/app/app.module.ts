@@ -18,6 +18,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FinderComponent } from './finder/finder.component';
@@ -57,6 +59,7 @@ import { PxdetailComponent } from './pxdetail/pxdetail.component';
     MatSidenavModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatTabsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
