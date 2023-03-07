@@ -34,11 +34,6 @@ export class PxdetailComponent {
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
-
-        console.log(
-          this.px, 
-          this.mapRegStatus(result.datas.reg_status)
-        );
       });
     });
   }
