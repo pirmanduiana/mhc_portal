@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { FinderComponent } from './finder/finder.component';
 import { TermsComponent } from './terms/terms.component';
 import { PxdetailComponent } from './pxdetail/pxdetail.component';
+import { PxregisteredComponent } from './pxregistered/pxregistered.component';
 
 const routes: Routes = [
     {
@@ -21,7 +22,7 @@ const routes: Routes = [
     },
     {
         path: 'registered',
-        component: FinderComponent
+        component: PxregisteredComponent
     },
     {
         path: 'terms',

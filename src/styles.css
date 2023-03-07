@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-table {
+table.custom {
     width: 100%;
     border-collapse: collapse;
     margin: 0 0 30px 0;
@@ -12,30 +12,30 @@ table {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-table thead tr {
+table.custom thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: left;
 }
 
-table th,
-table td {
+table.custom th,
+table.custom td {
     padding: 12px 15px;
 }
 
-table tbody tr {
+table.custom tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-table tbody tr:nth-of-type(even) {
+table.custom tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-table tbody tr:last-of-type {
+table.custom tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
 
-table tbody tr.active-row {
+table.custom tbody tr.active-row {
     font-weight: bold;
     color: #009879;
 }

@@ -20,6 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +34,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { PxdetailComponent } from './pxdetail/pxdetail.component';
+import { PxregisteredComponent } from './pxregistered/pxregistered.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,8 @@ import { PxdetailComponent } from './pxdetail/pxdetail.component';
     TermsComponent,
     LoaderComponent,
     MainNavComponent,
-    PxdetailComponent
+    PxdetailComponent,
+    PxregisteredComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,8 @@ import { PxdetailComponent } from './pxdetail/pxdetail.component';
     MatSnackBarModule,
     MatTabsModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     HttpClientModule,
     FormsModule,
