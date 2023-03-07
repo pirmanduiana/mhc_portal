@@ -52,6 +52,11 @@ export class FinderComponent {
       this.authService.getPasien(val).subscribe(result => {
         this.data_clients = result.datas;
         this.search_value = val;
+        if (this.data_clients.length==0) {
+          this.snackBar.open("Data not found", 'dismiss', {
+            duration: 2000
+          });
+        }
         localStorage.setItem(this.user.id +"_search_value", this.search_value);
         localStorage.setItem(this.user.id +"_find_search", JSON.stringify(this.data_clients));
       });
