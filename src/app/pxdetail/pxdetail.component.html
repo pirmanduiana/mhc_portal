@@ -66,11 +66,12 @@
         </mat-card-content>
         <mat-card-actions align="end" fxLayoutGap="15px">
             <mat-slide-toggle
+                (change)="regPasien()"
                 class="example-margin"
                 color="primary"
-                checked=false
-                disabled=false>
-                Register now
+                [checked]="is_reg"
+                [disabled]="is_reg">
+                {{px_reg_status}}
             </mat-slide-toggle>
         </mat-card-actions>
     </mat-card>

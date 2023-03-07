@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -17,11 +18,13 @@ export class PxdetailComponent {
   px_reg_status: string = "";
   id: any;
   type: any;
+  is_reg: boolean = false;
 
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private snackBar: MatSnackBar
   ){}
 
   ngOnInit() {
@@ -34,6 +37,7 @@ export class PxdetailComponent {
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
+        this.is_reg = result.datas.reg_status==1 ? true : false;
       });
     });
   }
@@ -42,6 +46,16 @@ export class PxdetailComponent {
   {
     let maper = ["Unregistered", "Registered", "In house"];
     return maper.at(reg_status);
+  }
+
+  regPasien(): void
+  {
+    this.authService.regPasien(this.type, this.id).subscribe(result => {
+      this.snackBar.open(result.message, 'done', {
+        duration: 800
+      });
+      this.is_reg = true;
+    })
   }
 
   back(): void
