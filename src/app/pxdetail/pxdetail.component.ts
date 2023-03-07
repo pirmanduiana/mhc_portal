@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-pxdetail',
@@ -9,18 +10,20 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PxdetailComponent {
   
-  id: number = 0;
-  type: string = "";
+  px: any = {};
 
   constructor(
+    private authService: AuthService,
     private route: ActivatedRoute,
     private location: Location
   ){}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params['id'];
-      this.type = params['type'];
+      this.authService.getDetailPx(params['id'], params['type']).subscribe(result => {
+        this.px = result.datas;
+        console.log(this.px);
+      });
     });
   }
 
