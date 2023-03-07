@@ -44,12 +44,18 @@ export class FinderComponent {
 
   applySearch(val: string): void
   {
-    this.authService.getPasien(val).subscribe(result => {
-      this.data_clients = result.datas;
-      this.search_value = val;
-      localStorage.setItem(this.user.id +"_search_value", this.search_value);
-      localStorage.setItem(this.user.id +"_find_search", JSON.stringify(this.data_clients));
-    });
+    if (val.length < 3) {
+      this.snackBar.open("Type at least 3 characters or more", 'dismiss', {
+        duration: 2000
+      });
+    } else {
+      this.authService.getPasien(val).subscribe(result => {
+        this.data_clients = result.datas;
+        this.search_value = val;
+        localStorage.setItem(this.user.id +"_search_value", this.search_value);
+        localStorage.setItem(this.user.id +"_find_search", JSON.stringify(this.data_clients));
+      });
+    }
   }
 
   viewDetail(id: number, type: string): void
