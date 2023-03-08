@@ -1,18 +1,17 @@
 <app-main-nav>
-    <form class="registered-filter-form" [formGroup]="formGroup" fxLayoutGap="15px">
-        <mat-form-field>
+    <form class="registered-filter-form" [formGroup]="formGroup" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="flex-start">
+        <mat-form-field fxFlex="0 1 calc(30% - 10px)">
             <mat-label>Date</mat-label>
             <input matInput formControlName="date" [matDatepicker]="datePicker">
             <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
             <mat-datepicker #datePicker></mat-datepicker>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field fxFlex="0 1 calc(70% - 10px)">
             <mat-label>Name</mat-label>
             <input matInput formControlName="name" placeholder="Type here">
+            <button class="submit-filter" mat-button matSuffix aria-label="search">
+                <mat-icon>search</mat-icon>
+            </button>
         </mat-form-field>
-        <button mat-mini-fab color="accent">
-            <mat-icon>search</mat-icon>
-        </button>
     </form>
-    <p>pxregistered works!</p>
 </app-main-nav>
