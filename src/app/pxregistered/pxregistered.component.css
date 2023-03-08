@@ -1,3 +1,7 @@
 button.submit-filter {
     margin-right: 10px;
 }
+
+.overflow-x {
+    overflow-x: auto;
+}
