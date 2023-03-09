@@ -38,7 +38,6 @@ export class PxdetailComponent {
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
         this.is_reg = result.datas.reg_status==1 ? true : false;
-        console.log(this.px.status_id);
       });
     });
   }
