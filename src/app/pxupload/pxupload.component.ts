@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-pxupload',
@@ -11,14 +12,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PxuploadComponent {
 
-  private id: any;
+  public id: any;
   public data: any = {};
   public regable: any = {};
+  public status: number = 4;
+  public file_bill: string = "";
+  public image_path: any;
+
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private authService: AuthService,
+    private _sanitizer: DomSanitizer,
     private snackBar: MatSnackBar
   ){}
 
@@ -31,6 +37,17 @@ export class PxuploadComponent {
         console.log(this.data);
       });
     });
+  }
+
+  handleUpload(event: any)
+  {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.file_bill = reader.result as string;
+      this.image_path = this._sanitizer.bypassSecurityTrustResourceUrl(this.file_bill);
+    }
   }
 
   back(): void

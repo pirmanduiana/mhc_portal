@@ -6,7 +6,13 @@
             <mat-card-subtitle>{{regable.mhc_code}}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            fjdsakl
+            <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="30px">
+                <img *ngIf="image_path" class="image-preview" [src]="image_path">
+                <div class="file-input">
+                    <input type="file" id="file" class="file" accept="image/*" required (change)="handleUpload($event)">
+                    <label for="file"><mat-icon>upload</mat-icon>Choose image</label>
+                </div>
+            </div>
         </mat-card-content>
     </mat-card>
 </app-main-nav>
