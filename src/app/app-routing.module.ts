@@ -6,6 +6,7 @@ import { FinderComponent } from './finder/finder.component';
 import { TermsComponent } from './terms/terms.component';
 import { PxdetailComponent } from './pxdetail/pxdetail.component';
 import { PxregisteredComponent } from './pxregistered/pxregistered.component';
+import { PxuploadComponent } from './pxupload/pxupload.component';
 
 const routes: Routes = [
     {
@@ -23,6 +24,10 @@ const routes: Routes = [
     {
         path: 'registered',
         component: PxregisteredComponent
+    },
+    {
+        path: 'registered/:id',
+        component: PxuploadComponent
     },
     {
         path: 'terms',

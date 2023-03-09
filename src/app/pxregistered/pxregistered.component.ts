@@ -58,6 +58,11 @@ export class PxregisteredComponent {
     this.router.navigate(['/find', id, choosen]);
   }
 
+  viewUploadBill(registered_id: number):void
+  {
+    this.router.navigate(['/registered', registered_id]);
+  }
+
   applySearch(val: string=""): void
   {
     if (val.length < 3) {

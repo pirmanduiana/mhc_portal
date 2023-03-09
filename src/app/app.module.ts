@@ -35,6 +35,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { PxdetailComponent } from './pxdetail/pxdetail.component';
 import { PxregisteredComponent } from './pxregistered/pxregistered.component';
+import { PxuploadComponent } from './pxupload/pxupload.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PxregisteredComponent } from './pxregistered/pxregistered.component';
     LoaderComponent,
     MainNavComponent,
     PxdetailComponent,
-    PxregisteredComponent
+    PxregisteredComponent,
+    PxuploadComponent
   ],
   imports: [
     BrowserModule,
