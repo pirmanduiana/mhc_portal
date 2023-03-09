@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -12,10 +13,12 @@ export class PxregisteredComponent {
 
   formGroup: FormGroup;
   public data_registered: any;
+  public user: any;
 
   constructor(
     private authService: AuthService,
     private snackBar: MatSnackBar,
+    private router: Router,
   ){
     this.formGroup = new FormGroup({
       date: new FormControl(''),
@@ -25,6 +28,7 @@ export class PxregisteredComponent {
 
   ngOnInit(){
     this.getRegPasien();
+    this.user = JSON.parse(localStorage.getItem('login_data') || "{}");
   }
 
   getRegPasien():void {
@@ -35,8 +39,23 @@ export class PxregisteredComponent {
           duration: 2000
         });
       }
-      console.log(this.data_registered);
     });
+  }
+
+  viewDetail(id: number, type: string): void
+  {
+    let map_type = [
+      {
+        'class' : 'App\\Mstclientemployee',
+        'value': 'karyawan'        
+      },
+      {
+        'class' : 'App\\Mstclientemployeemember',
+        'value' : 'tanggungan'
+      }
+    ];
+    let choosen = map_type.find(i=>i.class === type)?.value;
+    this.router.navigate(['/find', id, choosen]);
   }
 
   applySearch(val: string=""): void
