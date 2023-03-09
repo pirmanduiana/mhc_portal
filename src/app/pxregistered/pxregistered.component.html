@@ -25,6 +25,7 @@
                         <th>D.O.B</th>
                         <th>#BPJS</th>
                         <th>Reg. date</th>
+                        <th>Has bill</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,6 +36,10 @@
                         <td>{{registered.regable.dob}}</td>
                         <td>{{registered.regable.bpjs_code}}</td>
                         <td>{{registered.created_at}}</td>
+                        <td>
+                            <mat-icon>check</mat-icon>
+                            <mat-icon>close</mat-icon>
+                        </td>
                         <td>
                             <a mat-icon-button color="accent" (click)="viewDetail(registered.regable.id, registered.regable_type)"><mat-icon>preview</mat-icon></a>
                             <a mat-icon-button color="accent"><mat-icon>upload</mat-icon></a>
