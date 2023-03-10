@@ -44,7 +44,7 @@ export class PxdetailComponent {
 
   mapRegStatus(reg_status: number): any
   {
-    let maper = ["Unregistered", "Registered", "In house"];
+    let maper = ["Unregistered", "Registered", "Bill uploaded"];
     return maper.at(reg_status);
   }
 
