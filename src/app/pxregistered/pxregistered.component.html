@@ -11,7 +11,7 @@
 
     <mat-card *ngIf="(data_registered | keyvalue)?.length">
         <mat-card-content class="overflow-x">
-            <p>Showing {{paginator.page}} of {{paginator.total_data}}</p>
+            <p>Page {{paginator.page}} of {{paginator.last_page}}</p>
             <table class="custom">
                 <thead>
                     <tr>

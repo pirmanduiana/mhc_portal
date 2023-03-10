@@ -15,7 +15,7 @@ export class PxregisteredComponent {
   public user: any;
   public data_registered: any;
   public search_val: string = "";
-  public paginator = {"page": 1, "limit": 1, "total_data": 0};
+  public paginator = {"page": 1, "limit": 2, "total_data": 0, "last_page": 0};
   public disable_prev:boolean = false;
   public disable_next:boolean = false;
 
@@ -36,8 +36,10 @@ export class PxregisteredComponent {
 
   getRegPasien(q: string=""):void {
     this.authService.getRegPasien(q, this.paginator.page, this.paginator.limit).subscribe(result => {
+      console.log(result.datas);
       this.data_registered = result.datas.data;
       this.paginator.total_data = result.datas.total;
+      this.paginator.last_page = result.datas.last_page;
       if (this.data_registered.length==0) {
         this.snackBar.open("Data not found", 'dismiss', {
           duration: 2000
@@ -48,7 +50,7 @@ export class PxregisteredComponent {
 
   onPrevious(): void {
     this.paginator.page --;
-    if (this.paginator.page >= 1 && this.paginator.page <= this.paginator.total_data) {
+    if (this.paginator.page >= 1 && this.paginator.page <= this.paginator.last_page) {
       this.getRegPasien(this.search_val);
       this.disable_next = false;
     }
@@ -59,11 +61,11 @@ export class PxregisteredComponent {
 
   onNext(): void {
     this.paginator.page ++;
-    if (this.paginator.page <= this.paginator.total_data && this.paginator.page >= 1) {
+    if (this.paginator.page <= this.paginator.last_page && this.paginator.page >= 1) {
       this.getRegPasien(this.search_val);
       this.disable_prev = false;
     }
-    if (this.paginator.page == this.paginator.total_data) {
+    if (this.paginator.page == this.paginator.last_page) {
       this.disable_next = true;
     }
   }
