@@ -15,7 +15,7 @@ export class PxuploadComponent {
   public id: any;
   public data: any = {};
   public regable: any = {};
-  public status: number = 4;
+  public status: number = 2;
   public file_bill: string = "";
   public image_path: any;
 
