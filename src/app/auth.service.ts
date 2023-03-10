@@ -44,4 +44,8 @@ export class AuthService {
 	getRegById(id: number):Observable<any>{
 		return this.http.get(environment.apiUrl + "provider/get-reg/" + id);
 	}
+
+	postBillPasien(body: any):Observable<any>{
+		return this.http.post(environment.apiUrl + "provider/bill-pasien", body);
+	}
 }
