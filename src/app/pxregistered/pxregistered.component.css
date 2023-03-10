@@ -9,3 +9,34 @@ button.submit-filter {
 img.img-file-bill {
     width: 20%;
 }
+
+/* pagination */
+mat-card-footer {
+    text-align: center;
+}
+.pagination {
+    display: inline-block;
+    margin: 5px 0 0 0;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}

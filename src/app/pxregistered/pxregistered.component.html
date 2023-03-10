@@ -11,6 +11,7 @@
 
     <mat-card *ngIf="(data_registered | keyvalue)?.length">
         <mat-card-content class="overflow-x">
+            <p>Showing {{paginator.page}} of {{paginator.total_data}}</p>
             <table class="custom">
                 <thead>
                     <tr>
@@ -41,6 +42,13 @@
                     </tr>
                 </tbody>
             </table>
-        </mat-card-content>    
+        </mat-card-content>
+        <mat-card-footer>
+            <div class="pagination">
+                <a (click)="onPrevious()">&laquo;</a>
+                <a class="active">{{paginator.page}}</a>
+                <a (click)="onNext()">&raquo;</a>
+            </div>
+        </mat-card-footer>
     </mat-card>
 </app-main-nav>

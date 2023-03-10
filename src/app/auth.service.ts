@@ -37,8 +37,8 @@ export class AuthService {
 		return this.http.get(environment.apiUrl + "provider/reg-pasien?type=" + type + "&id=" + id);
 	}
 
-	getRegPasien(q: string):Observable<any>{
-		return this.http.get(environment.apiUrl + "provider/registered-pasien?q=" + q);
+	getRegPasien(q: string, page: number, limit: number):Observable<any>{
+		return this.http.get(environment.apiUrl + "provider/registered-pasien?q=" + q + "&page=" + page + "&limit=" + limit);
 	}
 
 	getRegById(id: number):Observable<any>{
