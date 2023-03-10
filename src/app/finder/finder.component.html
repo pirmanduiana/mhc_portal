@@ -2,7 +2,7 @@
   <form class="finder-form">
     <mat-form-field class="finder-full-width">
       <mat-label>Find</mat-label>
-      <input #txtVal matInput placeholder="Type here" (keydown.enter)="applySearch(txtVal.value)" [value]="search_value">
+      <input #txtVal matInput placeholder="Type here" [value]="search_value">
       <button mat-button matSuffix (click)="applySearch(txtVal.value)"><mat-icon>search</mat-icon></button>
     </mat-form-field>
   </form>
