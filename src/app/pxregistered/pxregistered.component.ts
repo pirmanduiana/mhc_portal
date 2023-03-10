@@ -31,8 +31,8 @@ export class PxregisteredComponent {
     this.user = JSON.parse(localStorage.getItem('login_data') || "{}");
   }
 
-  getRegPasien():void {
-    this.authService.getRegPasien().subscribe(result => {
+  getRegPasien(q: string=""):void {
+    this.authService.getRegPasien(q).subscribe(result => {
       this.data_registered = result.datas;
       if (this.data_registered.length==0) {
         this.snackBar.open("Data not found", 'dismiss', {
@@ -63,15 +63,9 @@ export class PxregisteredComponent {
     this.router.navigate(['/registered', registered_id]);
   }
 
-  applySearch(val: string=""): void
+  applySearch(val: string): void
   {
-    if (val.length < 3) {
-      this.snackBar.open("Type at least 3 characters or more", 'dismiss', {
-        duration: 2000
-      });
-    } else {
-      this.getRegPasien();
-    }
+    this.getRegPasien(val);
   }
 
 }

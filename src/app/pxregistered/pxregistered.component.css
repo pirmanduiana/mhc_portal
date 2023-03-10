@@ -5,3 +5,7 @@ button.submit-filter {
 .overflow-x {
     overflow-x: auto;
 }
+
+img.img-file-bill {
+    width: 20%;
+}

@@ -1,15 +1,9 @@
 <app-main-nav>
     <form class="registered-filter-form" [formGroup]="formGroup" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="flex-start">
-        <mat-form-field fxFlex="0 1 calc(30% - 10px)">
-            <mat-label>Date</mat-label>
-            <input matInput formControlName="date" [matDatepicker]="datePicker">
-            <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
-            <mat-datepicker #datePicker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field fxFlex="0 1 calc(70% - 10px)">
+        <mat-form-field fxFlex="0 1 calc(100% - 10px)">
             <mat-label>Name</mat-label>
-            <input matInput formControlName="name" placeholder="Type here">
-            <button class="submit-filter" mat-button matSuffix aria-label="search">
+            <input matInput formControlName="name" placeholder="Type here" #txtSearch>
+            <button class="submit-filter" mat-button matSuffix aria-label="search" (click)="applySearch(txtSearch.value)">
                 <mat-icon>search</mat-icon>
             </button>
         </mat-form-field>
@@ -37,12 +31,12 @@
                         <td>{{registered.regable.bpjs_code}}</td>
                         <td>{{registered.created_at}}</td>
                         <td>
-                            <mat-icon>check</mat-icon>
-                            <mat-icon>close</mat-icon>
+                            <mat-icon *ngIf="registered.has_bill">check</mat-icon>
+                            <mat-icon *ngIf="!registered.has_bill">close</mat-icon>
                         </td>
                         <td>
                             <a mat-icon-button color="accent" (click)="viewDetail(registered.regable.id, registered.regable_type)"><mat-icon>preview</mat-icon></a>
-                            <a mat-icon-button color="accent" (click)="viewUploadBill(registered.id)"><mat-icon>upload</mat-icon></a>
+                            <a *ngIf="!registered.has_bill" mat-icon-button color="accent" (click)="viewUploadBill(registered.id)"><mat-icon>upload</mat-icon></a>
                         </td>
                     </tr>
                 </tbody>
