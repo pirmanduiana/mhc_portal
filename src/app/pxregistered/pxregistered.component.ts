@@ -16,8 +16,6 @@ export class PxregisteredComponent {
   public data_registered: any;
   public search_val: string = "";
   public paginator = {"page": 1, "limit": 2, "total_data": 0, "last_page": 0};
-  public disable_prev:boolean = false;
-  public disable_next:boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -50,24 +48,12 @@ export class PxregisteredComponent {
 
   onPrevious(): void {
     this.paginator.page --;
-    if (this.paginator.page >= 1 && this.paginator.page <= this.paginator.last_page) {
-      this.getRegPasien(this.search_val);
-      this.disable_next = false;
-    }
-    if (this.paginator.page == 1) {
-      this.disable_prev = true;
-    }
+    this.getRegPasien(this.search_val);
   }
 
   onNext(): void {
     this.paginator.page ++;
-    if (this.paginator.page <= this.paginator.last_page && this.paginator.page >= 1) {
-      this.getRegPasien(this.search_val);
-      this.disable_prev = false;
-    }
-    if (this.paginator.page == this.paginator.last_page) {
-      this.disable_next = true;
-    }
+    this.getRegPasien(this.search_val);
   }
 
   viewDetail(id: number, type: string): void

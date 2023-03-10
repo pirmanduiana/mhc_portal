@@ -45,9 +45,9 @@
         </mat-card-content>
         <mat-card-footer>
             <div class="pagination">
-                <a (click)="onPrevious()" [ngClass]="disable_prev?'disabled':''">&laquo;</a>
+                <a (click)="onPrevious()" [ngClass]="paginator.page==1?'disabled':''">&laquo;</a>
                 <a class="active">{{paginator.page}}</a>
-                <a (click)="onNext()" [ngClass]="disable_next?'disabled':''">&raquo;</a>
+                <a (click)="onNext()" [ngClass]="paginator.page==paginator.last_page?'disabled':''">&raquo;</a>
             </div>
         </mat-card-footer>
     </mat-card>
