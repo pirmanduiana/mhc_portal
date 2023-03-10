@@ -14,8 +14,10 @@ export class PxregisteredComponent {
   formGroup: FormGroup;
   public user: any;
   public data_registered: any;
-  public paginator = {"page": 1, "limit": 1, "total_data": 0};
   public search_val: string = "";
+  public paginator = {"page": 1, "limit": 1, "total_data": 0};
+  public disable_prev:boolean = false;
+  public disable_next:boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -48,8 +50,10 @@ export class PxregisteredComponent {
     this.paginator.page --;
     if (this.paginator.page >= 1 && this.paginator.page <= this.paginator.total_data) {
       this.getRegPasien(this.search_val);
-    } else {
-      console.log("prev disabled");
+      this.disable_next = false;
+    }
+    if (this.paginator.page == 1) {
+      this.disable_prev = true;
     }
   }
 
@@ -57,8 +61,10 @@ export class PxregisteredComponent {
     this.paginator.page ++;
     if (this.paginator.page <= this.paginator.total_data && this.paginator.page >= 1) {
       this.getRegPasien(this.search_val);
-    } else {
-      console.log("next disabled");
+      this.disable_prev = false;
+    }
+    if (this.paginator.page == this.paginator.total_data) {
+      this.disable_next = true;
     }
   }
 

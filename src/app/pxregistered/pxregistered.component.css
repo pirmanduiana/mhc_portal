@@ -40,3 +40,7 @@ mat-card-footer {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.pagination a.disabled {
+    pointer-events: none;
+}
