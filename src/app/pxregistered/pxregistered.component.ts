@@ -34,7 +34,6 @@ export class PxregisteredComponent {
 
   getRegPasien(q: string=""):void {
     this.authService.getRegPasien(q, this.paginator.page, this.paginator.limit).subscribe(result => {
-      console.log(result.datas);
       this.data_registered = result.datas.data;
       this.paginator.total_data = result.datas.total;
       this.paginator.last_page = result.datas.last_page;

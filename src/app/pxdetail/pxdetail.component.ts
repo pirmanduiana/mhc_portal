@@ -32,13 +32,16 @@ export class PxdetailComponent {
       this.id = params['id'];
       this.type = params['type'];
       this.authService.getDetailPx(params['id'], params['type']).subscribe(result => {
-        console.log(result.datas);
         this.px = result.datas;
         this.px_client = result.datas.client || {};
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
-        this.reg_by_provider = result.datas.reg_by_provider;
+        if (result.datas.reg_by_provider == null) {
+          this.reg_by_provider.has_bill = false;
+        } else {
+          this.reg_by_provider = result.datas.reg_by_provider;
+        }
       });
     });
   }
