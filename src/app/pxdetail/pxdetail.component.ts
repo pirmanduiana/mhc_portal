@@ -18,7 +18,7 @@ export class PxdetailComponent {
   px_reg_status: string = "";
   id: any;
   type: any;
-  is_reg: boolean = false;
+  reg_by_provider: any = {};
 
   constructor(
     private authService: AuthService,
@@ -32,12 +32,13 @@ export class PxdetailComponent {
       this.id = params['id'];
       this.type = params['type'];
       this.authService.getDetailPx(params['id'], params['type']).subscribe(result => {
+        console.log(result.datas);
         this.px = result.datas;
         this.px_client = result.datas.client || {};
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
-        this.is_reg = result.datas.reg_status==1 ? true : false;
+        this.reg_by_provider = result.datas.reg_by_provider;
       });
     });
   }
@@ -54,7 +55,7 @@ export class PxdetailComponent {
       this.snackBar.open(result.message, 'done', {
         duration: 800
       });
-      this.is_reg = true;
+      // this.is_reg = true;
     })
   }
 

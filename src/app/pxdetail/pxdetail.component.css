@@ -5,3 +5,8 @@
 table {
     margin-top: 20px;
 }
+
+div.bill-container {
+    text-align: center;
+    padding: 20px;
+}

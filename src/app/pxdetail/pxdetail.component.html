@@ -55,11 +55,15 @@
                         </tbody>
                     </table>
                 </mat-tab>
-                <mat-tab label="Plafon">
-                    <!-- ... -->
+                <mat-tab label="Bill uploaded" *ngIf="reg_by_provider.has_bill">
+                    <div class="bill-container">
+                        <img src="{{reg_by_provider.file_bill}}">
+                    </div>                    
+                </mat-tab>
+                <mat-tab label="Plafon" *ngIf="px_client.plavon!=null">
+                    {{reg_by_provider.plavon}}
                 </mat-tab>
             </mat-tab-group>
-            {{px_reg_status}}
         </mat-card-content>
     </mat-card>
 </app-main-nav>
