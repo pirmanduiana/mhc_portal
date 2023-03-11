@@ -11,6 +11,7 @@
         <mat-card-content>
             <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="30px">
                 <img mat-card-image *ngIf="image_path" class="image-preview" [src]="image_path">
+                <span>Max size 1 MB, file must type of image: PNG, JPG, JPEG</span>
                 <div class="file-input">
                     <input type="file" id="file" class="file" accept="image/*" required (change)="handleUpload($event)">
                     <label for="file"><mat-icon>folder_open</mat-icon>&nbsp;Choose image</label>
