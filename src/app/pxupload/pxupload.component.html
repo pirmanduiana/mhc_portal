@@ -1,9 +1,12 @@
 <app-main-nav>
     <a mat-button (click)="back()" class="button-back"><mat-icon>arrow_back</mat-icon></a>
     <mat-card>
-        <mat-card-header>
+        <mat-card-header fxLayoutGap="10px">
             <mat-card-title>{{regable.name}}</mat-card-title>
             <mat-card-subtitle>{{regable.mhc_code}}</mat-card-subtitle>
+            <span class="toolbar-spacer"></span>
+            <button color="accent" mat-flat-button (click)="back()">Cancel</button>
+            <button color="primary" mat-flat-button (click)="upload()" [disabled]="submit_disabled"><mat-icon>upload</mat-icon>Submit</button>
         </mat-card-header>
         <mat-card-content>
             <div fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="30px">
@@ -14,9 +17,5 @@
                 </div>
             </div>
         </mat-card-content>
-        <mat-card-actions align="end" fxLayoutGap="10px">
-            <button color="accent" mat-flat-button (click)="back()">Cancel</button>
-            <button color="primary" mat-flat-button (click)="upload()"><mat-icon>upload</mat-icon>Submit</button>
-        </mat-card-actions>
     </mat-card>
 </app-main-nav>

@@ -2,6 +2,10 @@ mat-card-content {
     padding-top: 16px;
 }
 
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
 .file {
     opacity: 0;
     width: 0.1px;

@@ -18,6 +18,7 @@ export class PxuploadComponent {
   public status: number = 2;
   public file_bill: string = "";
   public image_path: any;
+  public submit_disabled: boolean = true;
 
 
   constructor(
@@ -35,7 +36,6 @@ export class PxuploadComponent {
       this.authService.getRegById(this.id).subscribe(result => {
         this.data = result.datas;
         this.regable = result.datas.regable;
-        console.log(this.data);
       });
     });
   }
@@ -48,6 +48,7 @@ export class PxuploadComponent {
     reader.onload = () => {
       this.file_bill = reader.result as string;
       this.image_path = this._sanitizer.bypassSecurityTrustResourceUrl(this.file_bill);
+      this.submit_disabled = false;
     }
   }
 
@@ -59,7 +60,22 @@ export class PxuploadComponent {
       'file_bill': this.file_bill
     };
     this.authService.postBillPasien(body).subscribe(result => {
-      this.router.navigateByUrl('/registered');
+      if (result.success) {
+        this.router.navigateByUrl('/registered');
+      } else {
+        this.snackBar.open(result.message, 'dismiss', {
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+        });
+        for (let index = 0; index < result.datas.length; index++) {
+          setTimeout(() => {
+            this.snackBar.open(result.datas[index], 'dismiss', {
+              verticalPosition: 'bottom',
+              horizontalPosition: 'center',
+            });
+          }, 1000);
+        }
+      }
     });
   }
 
