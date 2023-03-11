@@ -15,7 +15,7 @@ export class PxregisteredComponent {
   public user: any;
   public data_registered: any;
   public search_val: string = "";
-  public paginator = {"page": 1, "limit": 2, "total_data": 0, "last_page": 0};
+  public paginator = {"page": 1, "limit": 5, "total_data": 0, "last_page": 0};
 
   constructor(
     private authService: AuthService,
