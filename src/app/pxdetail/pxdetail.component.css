@@ -7,6 +7,12 @@ table {
 }
 
 div.bill-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    overflow: auto;
     text-align: center;
     padding: 20px;
+}
+
+.bill-container img {
+    width: 30%;
 }
