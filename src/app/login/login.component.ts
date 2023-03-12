@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     getAbout(): void{
         this.authService.getAbout().subscribe(result => {
             this.logo_url = result.datas.absolute_logo_url;
-            console.log(result);
         });
     }
 
