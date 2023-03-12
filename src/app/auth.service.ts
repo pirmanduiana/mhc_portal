@@ -9,6 +9,8 @@ import { environment } from "src/environments/environment";
 
 export class AuthService {
 
+	public is_login: boolean = false;
+
 	constructor(
 		private http:HttpClient,
 	) {}
@@ -51,5 +53,13 @@ export class AuthService {
 
 	getAbout():Observable<any>{
 		return this.http.get(environment.apiUrl + "about");
+	}
+
+	isLoggedIn():boolean {
+		this.is_login = localStorage.getItem('login_data') != null;
+		if (this.is_login) {
+            return true;
+        }
+		return false;
 	}
 }

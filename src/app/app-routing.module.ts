@@ -7,6 +7,7 @@ import { TermsComponent } from './terms/terms.component';
 import { PxdetailComponent } from './pxdetail/pxdetail.component';
 import { PxregisteredComponent } from './pxregistered/pxregistered.component';
 import { PxuploadComponent } from './pxupload/pxupload.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
     {
@@ -15,23 +16,28 @@ const routes: Routes = [
     },
     {
         path: 'find',
-        component: FinderComponent
+        component: FinderComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'find/:id/:type',
-        component: PxdetailComponent
+        component: PxdetailComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'registered',
-        component: PxregisteredComponent
+        component: PxregisteredComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'registered/:id',
-        component: PxuploadComponent
+        component: PxuploadComponent,
+        canActivate: [AuthGuard]
     },
     {
         path: 'terms',
-        component: TermsComponent
+        component: TermsComponent,
+        canActivate: [AuthGuard]
     }
 ];
 

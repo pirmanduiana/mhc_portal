@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private router: Router,
+        private snackBar: MatSnackBar,
     ){
         this.formGroup = new FormGroup({
             username: new FormControl('', [Validators.required]),
@@ -61,7 +63,9 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('login_data', JSON.stringify(result.datas));
                     this.router.navigateByUrl('/find');
                 } else {
-                    console.log(result);
+                    this.snackBar.open(result.message, 'dismiss', {
+                        duration: 8000
+                    });
                 }
                 this.resourcesLoaded = false;
             });
