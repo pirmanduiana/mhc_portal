@@ -38,8 +38,13 @@ export class PxdetailComponent {
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
-        this.member_class = result.datas.class;
-        console.log(this.member_class);
+
+        this.member_class = {
+          'name': 'undefined, please call our call center'
+        };
+        if (typeof result.datas.class != 'undefined') {
+          this.member_class = result.datas.class;
+        }
 
         if (result.datas.reg_by_provider == null) {
           this.reg_by_provider.has_bill = false;
