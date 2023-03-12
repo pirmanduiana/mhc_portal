@@ -3,7 +3,7 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title>{{px.name}}</mat-card-title>
-            <mat-card-subtitle>{{type}}</mat-card-subtitle>
+            <mat-card-subtitle>{{member_class.name}}</mat-card-subtitle>
             <span class="toolbar-spacer"></span>
             <h2>{{px_status.name}}</h2>
         </mat-card-header>
@@ -12,6 +12,10 @@
                 <mat-tab label="Profile">
                     <table class="custom">
                         <tbody>
+                            <tr>
+                                <td width="20%">Member type</td>
+                                <td width="80%">{{type}}</td>
+                            </tr>
                             <tr>
                                 <td width="20%">#MHC</td>
                                 <td width="80%">{{px.mhc_code}}</td>

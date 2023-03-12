@@ -19,6 +19,7 @@ export class PxdetailComponent {
   id: any;
   type: any;
   reg_by_provider: any = {};
+  member_class: any = {};
 
   constructor(
     private authService: AuthService,
@@ -37,6 +38,9 @@ export class PxdetailComponent {
         this.px_department = result.datas.department || {};
         this.px_status = result.datas.status;
         this.px_reg_status = this.mapRegStatus(result.datas.reg_status);
+        this.member_class = result.datas.class;
+        console.log(this.member_class);
+
         if (result.datas.reg_by_provider == null) {
           this.reg_by_provider.has_bill = false;
         } else {
