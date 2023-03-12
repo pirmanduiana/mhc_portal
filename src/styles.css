@@ -43,3 +43,7 @@ table.custom tbody tr.active-row {
 a.button-back {
     margin-bottom: 10px;
 }
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}

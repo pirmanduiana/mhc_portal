@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
     formGroup: FormGroup;
     resourcesLoaded: boolean = false;
     isLogedIn: boolean = false;
+    hide_password: boolean = true;
+    input_type: string = "password";
+    logo_url: string = "";
+
 
     constructor(
         private authService: AuthService,
@@ -30,7 +34,25 @@ export class LoginComponent implements OnInit {
         }
     };
     
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getAbout();
+    }
+
+    getAbout(): void{
+        this.authService.getAbout().subscribe(result => {
+            this.logo_url = result.datas.absolute_logo_url;
+            console.log(result);
+        });
+    }
+
+    togglePassword(): void {
+        this.hide_password = !this.hide_password
+        if (!this.hide_password) {
+            this.input_type = "text";
+        } else {
+            this.input_type = "password";
+        }
+    }
 
     loginProcess(): void{
         if (this.formGroup.valid) {

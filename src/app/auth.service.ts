@@ -48,4 +48,8 @@ export class AuthService {
 	postBillPasien(body: any):Observable<any>{
 		return this.http.post(environment.apiUrl + "provider/bill-pasien", body);
 	}
+
+	getAbout():Observable<any>{
+		return this.http.get(environment.apiUrl + "about");
+	}
 }

@@ -1,19 +1,18 @@
-<div fxLayoutAlign="center center" fxFlexFill>
-    <mat-card fxFlex="25">
+<mat-toolbar color="primary" [style.marginBottom.px]="12">
+    <img class="logo" [src]="logo_url">
+    <span class="toolbar-spacer"></span>
+    PORTAL
+</mat-toolbar>
+<div fxLayoutAlign="center center" fxFlexFill class="container">
+    <mat-card fxFlex="80">
         <mat-card-content>
-            <mat-toolbar color="primary" [style.marginBottom.px]="12">MHC</mat-toolbar>
             <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="loginProcess()">
                 <mat-form-field>
                     <input matInput placeholder="Username" formControlName="username">
-                    <div *ngIf="formGroup.controls['username'].errors">
-                        Field is required.
-                    </div>
                 </mat-form-field>
                 <mat-form-field>
-                    <input matInput type="password" placeholder="Password" formControlName="password">
-                    <div *ngIf="formGroup.controls['password'].errors">
-                        Field is required.
-                    </div>
+                    <input matInput [type]="input_type" placeholder="Password" formControlName="password">
+                    <mat-icon matSuffix (click)="togglePassword()">{{hide_password ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </mat-form-field>
                 <button type="submit" mat-fab extended [disabled]="!formGroup.valid || resourcesLoaded">
                     <mat-spinner *ngIf="resourcesLoaded" [diameter]="20"></mat-spinner>

@@ -16,10 +16,6 @@
   padding: 10px;
 }
 
-.toolbar-spacer {
-  flex: 1 1 auto;
-}
-
 a.active {
   background-color: #3f51b538;
 }
