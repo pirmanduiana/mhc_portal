@@ -9,6 +9,10 @@
         </mat-form-field>
     </form>
 
+    <div class="not-data-to-display" fxLayoutAlign="center center" fxLayout="row" fxFlexFill *ngIf="!(data_registered | keyvalue)?.length">
+        no data to display
+      </div>
+
     <mat-card *ngIf="(data_registered | keyvalue)?.length">
         <mat-card-content class="overflow-x">
             <p>Page {{paginator.page}} of {{paginator.last_page}}</p>

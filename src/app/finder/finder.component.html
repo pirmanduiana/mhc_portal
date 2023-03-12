@@ -7,6 +7,10 @@
     </mat-form-field>
   </form>
 
+  <div class="not-data-to-display" fxLayoutAlign="center center" fxLayout="row" fxFlexFill *ngIf="!(data_clients | keyvalue)?.length">
+    no data to display
+  </div>
+
   <mat-card *ngIf="(data_clients | keyvalue)?.length">
     <mat-card-content class="overflow-x">
       <div class="client-block" *ngFor="let data_patients of data_clients">

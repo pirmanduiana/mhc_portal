@@ -47,3 +47,9 @@ a.button-back {
 .toolbar-spacer {
     flex: 1 1 auto;
 }
+
+div.not-data-to-display {
+    position: fixed;
+    height: 50% !important;
+    min-height: unset !important;
+}
